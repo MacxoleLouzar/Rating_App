@@ -1,0 +1,18 @@
+###
+GET  http://localhost:5000
+
+###
+GET https://sheetdb.io/api/v1/xcuq48o2wlen4
+
+###
+POST https://sheetdb.io/api/v1/xcuq48o2wlen4
+Content-Type: application/json
+
+         {
+            "id": 5,
+            "name": "Zalo",
+            "rating": 6,
+            "comment": "Good work"
+          }
+###
+DELETE https://sheetdb.io/api/v1/xcuq48o2wlen4/id/5

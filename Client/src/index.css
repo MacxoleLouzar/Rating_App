@@ -1,0 +1,57 @@
+
+.landin{
+  background-image: url('../src/assets/TheMediaMill.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(rgb(67, 86, 67));
+}
+  
+
+.nav{
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  width: 100vw;
+}
+
+.navbar-nav {
+  display: flex;
+  font-weight: 900;
+  font-size: larger;
+  margin-right: 30%;
+}
+.navbar-nav :hover{
+  background-color: #20c997;
+}
+
+.logo img{
+  height: 50%;
+  width: 50%;
+  
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+.svg{
+  margin-right: 3%;
+}
+.svg :hover{
+  background-color: #20c997;
+}
+
+.Continue{
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+  padding-left: 70%;
+  
+}
+
+.Continue :hover{
+    background-color: #20c997;
+}
