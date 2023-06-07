@@ -9,16 +9,21 @@ import {
 import './index.css'
 import Landing from './Pages/Landing.jsx';
 import RatingPage from './Pages/RatingPage';
+import TangoPage from './Pages/TangoPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing/>,
+    element: <Landing />,
   },
   {
     path: "/rating",
-    element: <RatingPage/>,
+    element: <RatingPage />,
+  },
+  {
+    path: "/tango",
+    element: <TangoPage />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
