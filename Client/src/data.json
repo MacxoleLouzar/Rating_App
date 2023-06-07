@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
-    "name": "Hardy",
-    "email": "hardy@gmail.com",
-    "phone": "0214567897"
+    "name": "Ryan",
+    "rate": "5",
+    "comment": "He's working hard"
   },
   {
     "id": 2,
-    "name": "Opiwe",
-    "email": "opiwe@gmail.com",
-    "phone": "0214567897"
+    "name": "Nikki",
+    "rate": "3",
+    "comment": "She's good to learn when she try to do her work."
   },
   {
     "id": 3,
-    "name": "Masxole",
-    "email": "masxole@gmail.com",
-    "phone": "0214567897"
+    "name": "Wazeed",
+    "rate": "5",
+    "comment": "He's good focusing on his work."
   },
   {
     "id": 4,
-    "name": "Chezy",
-    "email": "chezy@gmail.com",
-    "phone": "0214567897"
+    "name": "Jana",
+    "rate": "1",
+    "comment": "She's lazy working when she does nothing."
   }
 ]

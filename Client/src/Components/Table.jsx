@@ -1,10 +1,40 @@
 import { useState, useRef } from "react";
 import Data from "../data.json";
 import "../styles/Table.css";
+import toast from "react-hot-toast";
 
 const Table = () => {
   const [data, setData] = useState(Data);
   const [editState, setEditState] = useState(-1);
+
+  const [name, setName] = useState("");
+  const [rate, setRate] = useState("");
+  const [comment, setComment] = useState("");
+
+    const validateInput = () => {
+      if (!name) {
+        toast.error("Your name is required!");
+        return false;
+      }
+
+      if (!rate) {
+        toast.error("Your rate is required!");
+        return false;
+      }
+
+      if (!comment) {
+        toast.error("Your comment is required!");
+        return false;
+      }
+      return true;
+    };
+    
+    const showAlert = () => {
+    if (!validateInput()) {
+      return;
+    }
+  }
+
 
   return (
     <div className="tableWrap">
@@ -14,8 +44,8 @@ const Table = () => {
           <table>
             <thead>
               <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
+              <th>Rate</th>
+              <th>Comment</th>
               <th>Action</th>
             </thead>
             {data.map((current, index) =>
@@ -24,8 +54,8 @@ const Table = () => {
               ) : (
                 <tr key={index}>
                   <td>{current.name}</td>
-                  <td>{current.email}</td>
-                  <td>{current.phone}</td>
+                  <td>{current.rate}</td>
+                  <td>{current.comment}</td>
                   <td>
                     <button
                       type="button"
@@ -50,13 +80,14 @@ const Table = () => {
       </div>
     </div>
   );
+
   function handleUpdate(event) {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    const email = event.target.elements.email.value;
-    const phone = event.target.elements.phone.value;
+    const rate = event.target.elements.rate.value;
+    const comment = event.target.elements.comment.value;
     const updatedData = data.map((d) =>
-      d.id === editState ? { ...d, name: name, email: email, phone: phone } : d
+      d.id === editState ? { ...d, name: name, rate: rate, comment: comment } : d
     );
     setEditState(-1);
     setData(updatedData);
@@ -81,16 +112,16 @@ function EditMemeber({ current, data, setData }) {
     setData(updateData);
   }
   function handleEamil(event) {
-    const email = event.target.value;
+    const rate = event.target.value;
     const updateData = data.map((d) =>
-      d.id === current.id ? { ...d, email: email } : d
+      d.id === current.id ? { ...d, rate: rate } : d
     );
     setData(updateData);
   }
-  function handlePhone(event) {
-    const phone = event.target.value;
+  function handlecomment(event) {
+    const comment = event.target.value;
     const updateData = data.map((d) =>
-      d.id === current.id ? { ...d, phone: phone } : d
+      d.id === current.id ? { ...d, comment: comment } : d
     );
     setData(updateData);
   }
@@ -107,20 +138,20 @@ function EditMemeber({ current, data, setData }) {
       </td>
       <td>
         <input
-          type="email"
+          type="rate"
           onChange={handleEamil}
-          value={current.email}
-          name="email"
-          placeholder="Enter Email"
+          value={current.rate}
+          name="rate"
+          placeholder="Enter rate"
         />
       </td>
       <td>
         <input
           type="text"
-          onChange={handlePhone}
-          value={current.phone}
-          name="phone"
-          placeholder="Enter Phone"
+          onChange={handlecomment}
+          value={current.comment}
+          name="comment"
+          placeholder="Enter comment"
         />
       </td>
       <td>
@@ -134,43 +165,54 @@ function EditMemeber({ current, data, setData }) {
 
 function AddMember({ setData }) {
   const nameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
+  const rateRef = useRef();
+  const commentRef = useRef();
 
   function handleValue(event) {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    const email = event.target.elements.email.value;
-    const phone = event.target.elements.phone.value;
+    const rate = event.target.elements.rate.value;
+    const comment = event.target.elements.comment.value;
     const newMember = {
       id: 5,
       name,
-      email,
-      phone,
+      rate,
+      comment,
     };
     setData((prevData) => prevData.concat(newMember));
     nameRef.current.value = "";
-    emailRef.current.value = "";
-    phoneRef.current.value = "";
+    rateRef.current.value = "";
+    commentRef.current.value = "";
   }
 
   return (
     <form onSubmit={handleValue}>
-      <input type="text" name="name" placeholder="Enter Name" ref={nameRef} />
       <input
-        type="email"
-        name="email"
-        placeholder="Enter Email"
-        ref={emailRef}
+        type="text"
+        name="name"
+        placeholder="Enter Name"
+        ref={nameRef}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="rate"
+        name="rate"
+        placeholder="Enter Rate"
+        ref={rateRef}
+        onChange={(e) => setRate(e.target.value)}
       />
       <input
         type="text"
-        name="phone"
-        placeholder="Enter Phone"
-        ref={phoneRef}
+        name="comment"
+        placeholder="Enter Comment"
+        ref={commentRef}
+        onChange={(e) => setComment(e.target.value)}
       />
-      <button className="addForm">Add</button>
+      <button className="addForm">
+        Add
+      </button>
     </form>
+    
   );
 }
 

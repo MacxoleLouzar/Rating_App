@@ -1,16 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css'
-import Landing from './Pages/Landing.jsx';
-import RatingPage from './Pages/RatingPage';
-import TangoPage from './Pages/TangoPage';
-
+import { Toaster } from "react-hot-toast";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import Landing from "./Pages/Landing.jsx";
+import RatingPage from "./Pages/RatingPage";
+import TangoPage from "./Pages/TangoPage";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +22,9 @@ const router = createBrowserRouter([
     element: <TangoPage />,
   },
 ]);
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+    <Toaster />
+  </React.StrictMode>
+);
