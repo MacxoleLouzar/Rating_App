@@ -5,7 +5,7 @@ const RatinForm = () => {
 
 
   return (
-    <div className='Container'>
+    <div className='Container justify-content-center'>
         <div className="card">
             <div className="card-title">
                 <h2>Rome Cohort</h2>

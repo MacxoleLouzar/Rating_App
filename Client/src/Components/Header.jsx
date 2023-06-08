@@ -1,3 +1,7 @@
+
+import React, {useState, useEffect} from "react";
+import { NavLink } from "react-router-dom"
+
 function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,14 +32,14 @@ function Header() {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink to={'/rating'} className="nav-link" href="#">
                 Romeo
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink to={'/tango'} className="nav-link" href="#">
                 Tango
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -49,7 +53,7 @@ function Header() {
         >
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
           />
         </svg>
