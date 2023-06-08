@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const RatinForm = () => {
     
+
+
   return (
     <div className='Container'>
         <div className="card">
