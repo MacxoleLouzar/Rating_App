@@ -7,9 +7,9 @@ const Table = () => {
   const [data, setData] = useState(Data);
   const [editState, setEditState] = useState(-1);
 
-  const [name, setName] = useState("");
-  const [rate, setRate] = useState("");
-  const [comment, setComment] = useState("");
+  const [name, setName] = useState([]);
+  const [rate, setRate] = useState([]);
+  const [comment, setComment] = useState([]);
 
     const validateInput = () => {
       if (!name) {
@@ -192,27 +192,27 @@ function AddMember({ setData }) {
         name="name"
         placeholder="Enter Name"
         ref={nameRef}
-        onChange={(e) => setName(e.target.value)}
+        // value={name}
+        // onChange={(e) => setName(e.target.value)}
       />
       <input
         type="rate"
         name="rate"
         placeholder="Enter Rate"
         ref={rateRef}
-        onChange={(e) => setRate(e.target.value)}
+        // value={rate}
+        // onChange={(e) => setRate(e.target.value)}
       />
       <input
         type="text"
         name="comment"
         placeholder="Enter Comment"
         ref={commentRef}
-        onChange={(e) => setComment(e.target.value)}
+        // value={comment}
+        // onChange={(e) => setComment(e.target.value)}
       />
-      <button className="addForm">
-        Add
-      </button>
+      <button className="addForm">Add</button>
     </form>
-    
   );
 }
 
