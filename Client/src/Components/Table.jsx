@@ -1,8 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 // import Data from "../data.json";
+import "../styles/Table.css";
 import toast from "react-hot-toast";
 import AppContext from "../context/AppContext";
-import "../styles/Table.css";
 
 const Table = () => {
   // const [data, setData] = useState(Data);
@@ -39,7 +39,7 @@ const Table = () => {
 }
 
   useEffect(()=>{
-    fetch("https://sheetdb.io/api/v1/xcuq48o2wlen4")
+    fetch("https://sheetdb.io/api/v1/nm4auk8dww5og")
     .then((res)=>res.json())
     .then((data)=>{
       setName(data)
@@ -93,14 +93,14 @@ const Table = () => {
 
   function handleUpdate(event) {
     event.preventDefault();
-    // const name = event.target.elements.name.value;
+    const name = event.target.elements.name.value;
     const rate = event.target.elements.rate.value;
     const comment = event.target.elements.comment.value;
     const updatedData = name.map((d) =>
       d.id === editState ? { ...d, name: name, rating: rate, comment: comment } : d
     );
     setEditState(-1);
-    UpdateLearner(updatedData);
+    // UpdateLearner(updatedData);
   }
 
   function handleEdit(name) {
@@ -109,7 +109,7 @@ const Table = () => {
 
   function handleDelete(id) {
     const updatedData = name.filter((d) => id !== d.id);
-    UpdateLearner(updatedData);
+    // UpdateLearner(updatedData);
   }
 };
 
@@ -119,7 +119,7 @@ function EditMemeber({ current, name, Learners }) {
     const updateData = name.map((d) =>
       d.id === current.id ? { ...d, name: name } : d
     );
-    Learners(updateData);
+    // Learners(updateData);
   }
 
 
@@ -128,14 +128,14 @@ function EditMemeber({ current, name, Learners }) {
     const updateData = rating.map((d) =>
       d.id === current.id ? { ...d, rating: rate } : d
     );
-    Learners(updateData);
+    // Learners(updateData);
   }
   function handlecomment(event) {
     const comment = event.target.value;
     const updateData = comment.map((d) =>
       d.id === current.id ? { ...d, comment: comment } : d
     );
-    Learners(updateData);
+    // Learners(updateData);
   }
   return (
     <tr>
